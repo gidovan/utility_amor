@@ -80,10 +80,12 @@ def sign_up():
                     check_boolean[f"{dt}"] = True
             if all(check_boolean.values()):
                 insert_credential(f"{si_fname} {si_lname}", si_email, si_password)
-                st.success("Account created successfully")
+                # st.success("Account created successfully")
+                st.success("Account Created Successfully")
+                st.balloons()
+                time.sleep(2)
                 st.session_state["take_me_2login"] = True
                 st.session_state["take_me_to_signup"] = False
-                st.balloons()
                 st.experimental_rerun()
             else:
                 st.warning("Oops something went wrong, cross check the forms 🤔")
@@ -100,6 +102,8 @@ def login_in():
             if log_email and log_password:
                 if authenticate_user(log_email, log_password):
                     st.balloons()
+                    st.success("Login in Successful")
+                    time.sleep(2)
                     st.session_state["take_me_2login"] = False
                     st.session_state["take_me_to_signup"] = False
                     st.session_state["take_2_homepage"] = True
