@@ -16,6 +16,7 @@ def home_page():
               "lol, i was soo geeked up on what i had doing")
     with st.sidebar.expander("Cool Apps"):
         st.write("check")
+        st.camera_input("pic")
 
 
 # authenticate users email and password
