@@ -97,15 +97,17 @@ def login_in():
         coll1, coll2 = st.columns(2)
 
         if coll1.form_submit_button("Login Now"):
-            if authenticate_user(log_email, log_password):
-                st.balloons()
-                st.session_state["take_me_2login"] = False
-                st.session_state["take_me_to_signup"] = False
-                st.session_state["take_2_homepage"] = True
-                st.experimental_rerun()
+            if log_email and log_password:
+                if authenticate_user(log_email, log_password):
+                    st.balloons()
+                    st.session_state["take_me_2login"] = False
+                    st.session_state["take_me_to_signup"] = False
+                    st.session_state["take_2_homepage"] = True
+                    st.experimental_rerun()
+                else:
+                    st.warning("wrong email or password")
             else:
-                st.warning("wrong email or password")
-
+                st.warning("Enter email and password")
 
 
 
